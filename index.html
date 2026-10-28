@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MOAWORK 모아워크 | 소상공인 맞춤 1인 콘텐츠 스튜디오</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Pretendard:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#003a2a",
+            "primary-fixed-dim": "#ffb4a3",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-high": "#dee8ff",
+            "primary-fixed": "#ffdad2",
+            "surface": "#f9f9ff",
+            "on-tertiary-fixed": "#002116",
+            "outline-variant": "#e1bfb8",
+            "surface-bright": "#f9f9ff",
+            "surface-tint": "#ae3115",
+            "surface-container-low": "#f0f3ff",
+            "on-tertiary": "#ffffff",
+            "surface-variant": "#d8e3fb",
+            "error": "#ba1a1a",
+            "surface-dim": "#cfdaf2",
+            "background": "#FAF8F5",
+            "on-error-container": "#93000a",
+            "secondary": "#875200",
+            "on-surface": "#111c2d",
+            "tertiary-fixed-dim": "#67dbb1",
+            "outline": "#8d716a",
+            "on-primary-fixed": "#3d0600",
+            "on-secondary-container": "#6a4000",
+            "inverse-surface": "#263143",
+            "surface-container-highest": "#d8e3fb",
+            "on-primary-fixed-variant": "#8c1900",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#661000",
+            "secondary-fixed-dim": "#ffb865",
+            "tertiary-fixed": "#84f8cc",
+            "inverse-on-surface": "#ecf1ff",
+            "primary": "#ae3115",
+            "error-container": "#ffdad6",
+            "on-primary": "#ffffff",
+            "secondary-container": "#fda632",
+            "on-secondary-fixed": "#2b1700",
+            "secondary-fixed": "#ffddba",
+            "on-background": "#111c2d",
+            "on-error": "#ffffff",
+            "on-surface-variant": "#59413c",
+            "inverse-primary": "#ffb4a3",
+            "tertiary": "#006c50",
+            "primary-container": "#ff6b4a",
+            "surface-container": "#e7eeff",
+            "tertiary-container": "#31ad86",
+            "on-secondary-fixed-variant": "#673d00",
+            "on-tertiary-fixed-variant": "#00513c"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem",
+            "margin": "2.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Pretendard", "Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Pretendard", "Plus Jakarta Sans", "sans-serif"],
+            "title-md": ["Pretendard", "Plus Jakarta Sans", "sans-serif"],
+            "display-lg-mobile": ["Pretendard", "Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Pretendard", "Plus Jakarta Sans", "sans-serif"],
+            "label-lg": ["Pretendard", "Plus Jakarta Sans", "sans-serif"],
+            "headline-xl-mobile": ["Pretendard", "Plus Jakarta Sans", "sans-serif"],
+            "display-lg": ["Pretendard", "Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Pretendard", "Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Pretendard", "Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Pretendard", "Plus Jakarta Sans", "sans-serif"],
+            "headline-xl": ["Pretendard", "Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Pretendard", "Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Pretendard", "Plus Jakarta Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "title-md": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["56px", { "lineHeight": "68px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.025em", "fontWeight": "700" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-shadow-soft {
+      box-shadow: 0 4px 20px -2px rgba(30, 41, 59, 0.05), 0 1px 3px 0 rgba(30, 41, 59, 0.03);
+    }
+    .custom-shadow-warm {
+      box-shadow: 0 12px 28px -4px rgba(255, 107, 74, 0.18), 0 4px 10px -2px rgba(30, 41, 59, 0.04);
+    }
+    .craft-border {
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased font-body-md text-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed min-h-screen relative overflow-x-hidden">
+<!-- 1. Floating Pill Header (TopNavBar Anchor Execution) -->
+<header class="fixed top-4 inset-x-0 mx-auto z-50 flex items-center justify-between px-6 py-3 max-w-5xl bg-surface-container-lowest/90 dark:bg-inverse-surface/90 backdrop-blur-md rounded-full border border-outline-variant/30 shadow-sm transition-all duration-300">
+<!-- Brand Logo -->
+<a aria-label="MOAWORK Home" class="flex items-center gap-2 group active:scale-95 transition-transform duration-150 ease-out" href="#">
+<img alt="MOAWORK Studio Logo" class="h-9 w-auto object-contain" src="logo.svg"/>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-1 lg:gap-2">
+<a class="px-4 py-2 text-label-lg font-label-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-full transition-colors duration-150" href="#about">
+        스튜디오 소개
+      </a>
+<a class="px-4 py-2 text-label-lg font-label-lg text-primary font-bold hover:bg-surface-container-low rounded-full transition-colors duration-150" href="#services">
+        서비스 (상세페이지·사진·글)
+      </a>
+<a class="px-4 py-2 text-label-lg font-label-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-full transition-colors duration-150" href="#faq">
+        자주 묻는 질문
+      </a>
+<a class="px-4 py-2 text-label-lg font-label-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-full transition-colors duration-150" href="#contact">
+        상담 가이드
+      </a>
+</nav>
+<!-- Trailing Action -->
+<div class="flex items-center gap-2">
+<a class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-primary-container text-surface-container-lowest font-label-lg text-label-lg shadow-sm hover:opacity-95 active:scale-95 transition-transform duration-150 ease-out" href="#contact">
+<span>1:1 상담 준비하기</span>
+<span class="material-symbols-outlined text-surface-container-lowest text-base" data-icon="mood">mood</span>
+</a>
+</div>
+</header>
+<main class="pt-28 md:pt-36">
+<!-- 2. Hero Section (Playful Split Bento Layout) -->
+<section class="max-w-7xl mx-auto px-6 md:px-12 py-10 md:py-16">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+<!-- Hero Left Column -->
+<div class="lg:col-span-6 flex flex-col items-start gap-6">
+<!-- Tag Pill Badge -->
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-md font-label-md border border-secondary-container/40 shadow-xs">
+<span class="text-base leading-none">☀️</span>
+<span>소상공인 맞춤 1인 콘텐츠 스튜디오</span>
+</div>
+<!-- Expressive Charismatic Headline -->
+<h1 class="text-headline-xl md:text-display-lg font-headline-xl md:font-display-lg text-on-surface tracking-tight">
+            좋은 제품이 온라인에서도<br/>
+<span class="text-primary underline decoration-wavy decoration-secondary-container underline-offset-8">활짝 피어나도록</span>
+</h1>
+<!-- Warm Sub-headline -->
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+            거품 많은 대행사 비용 없이, 상담부터 기획·촬영·글쓰기까지 대표가 직접 1:1로 짓는 정성 가득한 온라인 옷을 입혀드립니다.
+          </p>
+<!-- Dual CTA Buttons -->
+<div class="flex flex-wrap items-center gap-4 pt-2 w-full sm:w-auto">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-primary-container text-surface-container-lowest font-title-md text-title-md custom-shadow-warm hover:translate-y-[-2px] active:scale-95 transition-all duration-200" href="#contact">
+<span>1:1 무료 사전진단 신청</span>
+<span class="material-symbols-outlined text-surface-container-lowest text-lg" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-surface-container-lowest text-secondary font-title-md text-title-md border border-secondary-fixed-dim hover:bg-surface-container-low transition-colors duration-200" href="#services">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="auto_awesome">auto_awesome</span>
+<span>포트폴리오 둘러보기</span>
+</a>
+</div>
+<!-- 3 Trust Metric Badges -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full pt-4">
+<div class="flex items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-surface-container-lowest craft-border shadow-xs">
+<span class="text-base">✨</span>
+<span class="text-label-md font-label-md text-on-surface">1:1 대표 직접 제작</span>
+</div>
+<div class="flex items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-surface-container-lowest craft-border shadow-xs">
+<span class="text-base">🎯</span>
+<span class="text-label-md font-label-md text-on-surface">100% 맞춤 기획 제안</span>
+</div>
+<div class="flex items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-surface-container-lowest craft-border shadow-xs">
+<span class="text-base">🏷️</span>
+<span class="text-label-md font-label-md text-on-surface">0원 사전 진단 &amp; 컨설팅</span>
+</div>
+</div>
+</div>
+<!-- Hero Right Column (Bento Craft Composition) -->
+<div class="lg:col-span-6 relative">
+<!-- Background Ambient Glow -->
+<div class="absolute -top-10 -right-10 w-72 h-72 bg-secondary-fixed/40 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+<div class="absolute -bottom-10 -left-10 w-72 h-72 bg-primary-fixed/40 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+<div class="relative bg-surface-container-lowest rounded-3xl craft-border p-6 md:p-8 custom-shadow-soft">
+<!-- Header Pill of Bento showcase -->
+<div class="flex items-center justify-between pb-6 border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-secondary-container"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-tertiary-container"></span>
+<span class="text-label-md font-label-md text-on-surface-variant font-medium ml-2">모아워크 실시간 제작 캔버스</span>
+</div>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-container text-label-sm font-label-sm font-bold">
+<span class="material-symbols-outlined text-xs" data-icon="verified">verified</span>
+                전환율 +240% 달성 스토리
+              </span>
+</div>
+<!-- Bento Composition Preview Elements -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-6">
+<!-- Mobile Wireframe Card -->
+<div class="bg-surface-container-low rounded-2xl p-4 flex flex-col gap-3 border border-outline-variant/30">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-primary uppercase font-bold tracking-wider">Mobile Preview</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">스마트스토어 1위</span>
+</div>
+<!-- Simulating Detail Page Slice -->
+<div class="bg-surface-container-lowest rounded-xl p-3 shadow-xs flex flex-col gap-2">
+<div class="w-full h-24 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-4xl" data-icon="photo_library">photo_library</span>
+</div>
+<div class="h-3 bg-on-surface/10 rounded-full w-3/4"></div>
+<div class="h-2.5 bg-on-surface/5 rounded-full w-full"></div>
+<div class="h-2.5 bg-on-surface/5 rounded-full w-5/6"></div>
+<div class="mt-2 p-2 rounded-lg bg-primary-fixed flex items-center justify-between text-on-primary-container">
+<span class="text-label-sm font-label-sm font-bold">얼리버드 펀딩 1,200% 달성</span>
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+</div>
+<!-- Floating Mini Craft Cards Container -->
+<div class="flex flex-col gap-4">
+<!-- Mini Card 1: Photography -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 craft-border shadow-xs flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="photo_camera">photo_camera</span>
+</div>
+<div>
+<span class="inline-block px-2 py-0.5 rounded-full bg-secondary-fixed-dim/30 text-on-secondary-fixed-variant text-label-sm font-label-sm mb-0.5">자연광 감성 연출</span>
+<h2 class="text-title-md font-title-md text-on-surface text-sm font-bold">오브제 &amp; 텍스처 컷</h2>
+</div>
+</div>
+<!-- Mini Card 2: Copywriting -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 craft-border shadow-xs flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-container shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="edit_note">edit_note</span>
+</div>
+<div>
+<span class="inline-block px-2 py-0.5 rounded-full bg-tertiary-fixed-dim/30 text-on-tertiary-container text-label-sm font-label-sm mb-0.5">마음을 여는 문장</span>
+<h2 class="text-title-md font-title-md text-on-surface text-sm font-bold">스토리텔링 카피라이팅</h2>
+</div>
+</div>
+<!-- Mini Card 3: Direct Consultation -->
+<div class="bg-primary-fixed rounded-2xl p-3.5 flex items-center justify-between text-on-primary-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="handshake">handshake</span>
+<span class="text-label-md font-label-md font-bold">커뮤니케이션 로스 0% 원칙</span>
+</div>
+<span class="material-symbols-outlined text-base" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Footer Badge inside hero graphic -->
+<div class="mt-4 pt-3 flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>* 기획 · 촬영 · 문안 일체화 프로세스</span>
+<span class="text-primary font-bold">소상공인 맞춤 1:1 직거래 파트너십</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. About Section ("작지만 단단하게, 대표가 직접 짓습니다") -->
+<section class="py-16 md:py-24 bg-surface-container-low/60 border-y border-outline-variant/20" id="about">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="max-w-2xl mb-12">
+<div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="psychology">psychology</span>
+<span>왜 모아워크와 함께하면 후회가 없을까요?</span>
+</div>
+<h2 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">
+            작지만 단단하게,<br/>
+            대표가 직접 기획하고 손수 짓습니다.
+          </h2>
+<p class="mt-3 text-body-md font-body-md text-on-surface-variant">
+            복잡한 대행사의 하청 구조를 걷어내고, 소상공인 대표님의 제품이 가진 고유한 매력을 가장 솔직하고 따뜻하게 온라인에 담아냅니다.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-3xl p-8 craft-border custom-shadow-soft flex flex-col justify-between hover:translate-y-[-2px] transition-transform duration-200">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="face">face</span>
+</div>
+<div class="inline-block px-3 py-1 rounded-full bg-primary-fixed-dim/40 text-on-primary-fixed-variant text-label-sm font-label-sm font-bold mb-3">
+                01. 1인 책임 제작
+              </div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-4">
+                대표 직접 1:1 상담 &amp; 원스톱 제작
+              </h3>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                기획자 따로, 디자이너 따로, 포토그래퍼 따로인 일반 대행사와 다릅니다. 상담한 대표가 직접 기획하고, 카메라를 들어 제품을 촬영하고, 문장을 다듬기에 전달 과정에서의 소통 누락(커뮤니케이션 로스)이 전혀 없습니다.
+              </p>
+</div>
+<div class="mt-8 pt-4 border-t border-outline-variant/20 flex items-center justify-between text-label-md font-label-md text-primary font-bold">
+<span>기획-촬영-카피 통합 관리</span>
+<span class="material-symbols-outlined text-lg" data-icon="task_alt">task_alt</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-3xl p-8 craft-border custom-shadow-soft flex flex-col justify-between hover:translate-y-[-2px] transition-transform duration-200">
+<div>
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed flex items-center justify-center text-secondary mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="checklist">checklist</span>
+</div>
+<div class="inline-block px-3 py-1 rounded-full bg-secondary-fixed-dim/40 text-on-secondary-fixed-variant text-label-sm font-label-sm font-bold mb-3">
+                02. 예산 지킴이 솔루션
+              </div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-4">
+                기존 자료 사전 확인 후 꼭 필요한 것만 제안
+              </h3>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                무조건 비싼 전체 풀패키지를 권하지 않습니다. 대표님이 스마트폰으로 찍어두신 기존 사진이나 메모를 먼저 꼼꼼히 검토한 뒤, 꼭 새로 찍어야 할 것과 살릴 수 있는 것을 구별해 소중한 예산을 현명하게 아껴드립니다.
+              </p>
+</div>
+<div class="mt-8 pt-4 border-t border-outline-variant/20 flex items-center justify-between text-label-md font-label-md text-secondary font-bold">
+<span>불필요한 과잉 견적 제로</span>
+<span class="material-symbols-outlined text-lg" data-icon="savings">savings</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Three Core Services Grid (Vibrant Interactive Bento Cards) -->
+<section class="py-16 md:py-24 max-w-7xl mx-auto px-6 md:px-12" id="services">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<div class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-tertiary-fixed text-on-tertiary-container text-label-sm font-label-sm mb-4 font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="design_services">design_services</span>
+<span>CORE CREATIVE SERVICES</span>
+</div>
+<h2 class="text-headline-xl font-headline-xl text-on-surface tracking-tight mb-4">
+          모아워크가 만드는 3가지 핵심 솔루션
+        </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+          소상공인 대표님의 제품 경쟁력을 극대화하는 기획·촬영·문장 맞춤형 솔루션입니다.
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Service Card 1: Detail Page -->
+<div class="bg-surface-container-lowest rounded-3xl craft-border p-7 flex flex-col justify-between custom-shadow-soft hover:shadow-lg transition-shadow duration-300">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-primary text-label-sm font-label-sm font-bold">
+                DETAIL PAGE
+              </span>
+<span class="material-symbols-outlined text-primary-container text-2xl" data-icon="web">web</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-3">
+              구매 전환율을 설계하는<br/>스토리형 상세페이지
+            </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-6">
+              단순 나열형 설명서가 아닙니다. 고객의 결핍을 짚고 신뢰를 주어 지갑을 열게 만드는 탄탄한 기승전결 스토리보드를 만듭니다.
+            </p>
+<!-- Visual Wireframe Simulation -->
+<div class="bg-surface-container-low rounded-2xl p-4 mb-6 border border-outline-variant/30 flex flex-col gap-2.5">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/20 text-label-sm font-label-sm font-bold text-on-surface-variant">
+<span>기-승-전-결 프레임워크</span>
+<span class="text-primary font-bold">Conversion-focused</span>
+</div>
+<div class="p-2 bg-surface-container-lowest rounded-lg border-l-4 border-primary text-label-sm font-label-sm text-on-surface">
+<strong>1. 후킹 인트로:</strong> 고객의 진짜 고민 건드리기
+              </div>
+<div class="p-2 bg-surface-container-lowest rounded-lg border-l-4 border-secondary text-label-sm font-label-sm text-on-surface">
+<strong>2. 차별점 솔루션:</strong> 왜 이 제품이어야 하는가?
+              </div>
+<div class="p-2 bg-surface-container-lowest rounded-lg border-l-4 border-tertiary text-label-sm font-label-sm text-on-surface">
+<strong>3. 디테일 &amp; 증명:</strong> 성분, 사이즈, 생산 과정
+              </div>
+</div>
+<!-- Features Checklist -->
+<ul class="space-y-2.5 text-body-sm font-body-sm text-on-surface mb-6">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-base shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<span>이탈률을 낮추는 첫 3초 강력한 후킹 인트로</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-base shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<span>스마트폰 가독성을 고려한 모바일 최적화 디자인</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-base shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<span>스마트스토어, 쿠팡, 자사몰 가이드라인 규격 완벽 대응</span>
+</li>
+</ul>
+</div>
+<a class="inline-flex items-center justify-center gap-1.5 w-full py-3 rounded-2xl bg-surface-container text-on-surface text-label-lg font-label-lg hover:bg-primary-fixed hover:text-primary transition-colors" href="#contact">
+<span>상세페이지 상담 문의</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Service Card 2: Commercial Photography -->
+<div class="bg-surface-container-lowest rounded-3xl craft-border p-7 flex flex-col justify-between custom-shadow-soft hover:shadow-lg transition-shadow duration-300">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-secondary text-label-sm font-label-sm font-bold">
+                COMMERCIAL PHOTO
+              </span>
+<span class="material-symbols-outlined text-secondary-container text-2xl" data-icon="photo_camera">photo_camera</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-3">
+              손길과 정성이 전해지는<br/>따뜻한 감성 연출컷
+            </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-6">
+              차갑고 인위적인 흰색 누끼컷 대신, 자연광과 따스한 소품을 활용해 고객의 일상 속에 자연스레 녹아드는 제품의 진가를 담아냅니다.
+            </p>
+<!-- Visual Photography Simulation -->
+<div class="bg-surface-container-low rounded-2xl p-4 mb-6 border border-outline-variant/30 flex flex-col gap-2.5">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/20 text-label-sm font-label-sm font-bold text-on-surface-variant">
+<span>촬영 프리뷰 &amp; 톤앤매너</span>
+<span class="text-secondary font-bold">Natural Daylight</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="h-20 bg-secondary-fixed/50 rounded-xl flex flex-col items-center justify-center text-center p-2">
+<span class="material-symbols-outlined text-xl text-secondary" data-icon="light_mode">light_mode</span>
+<span class="text-label-sm font-label-sm text-on-secondary-fixed mt-1">자연광 연출컷</span>
+</div>
+<div class="h-20 bg-surface-container rounded-xl flex flex-col items-center justify-center text-center p-2">
+<span class="material-symbols-outlined text-xl text-on-surface-variant" data-icon="zoom_in">zoom_in</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-1">질감 클로즈업</span>
+</div>
+</div>
+</div>
+<!-- Features Checklist -->
+<ul class="space-y-2.5 text-body-sm font-body-sm text-on-surface mb-6">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-base shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<span>원단, 음식, 수공예 제품의 고유 질감 극대화</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-base shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<span>브랜드 무드에 어울리는 테이블웨어 및 라이프 소품 셋팅</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-base shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<span>상세페이지 탑재용 압축 웹 최적화 + 고해상도 원본 전달</span>
+</li>
+</ul>
+</div>
+<a class="inline-flex items-center justify-center gap-1.5 w-full py-3 rounded-2xl bg-surface-container text-on-surface text-label-lg font-label-lg hover:bg-secondary-fixed hover:text-secondary transition-colors" href="#contact">
+<span>제품 촬영 견적 문의</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Service Card 3: Brand Copywriting -->
+<div class="bg-surface-container-lowest rounded-3xl craft-border p-7 flex flex-col justify-between custom-shadow-soft hover:shadow-lg transition-shadow duration-300">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="px-3 py-1 rounded-full bg-tertiary-fixed text-tertiary text-label-sm font-label-sm font-bold">
+                BRAND STORY
+              </span>
+<span class="material-symbols-outlined text-tertiary-container text-2xl" data-icon="stylus">stylus</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-3">
+              제품 뒤 숨은 대표님의 철학을<br/>진솔하게 담는 글
+            </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-6">
+              과장된 미사여구는 오래가지 못합니다. 왜 이 제품을 만들게 되었는지, 만드는 사람의 정성을 진심 어린 문장으로 전달합니다.
+            </p>
+<!-- Visual Copywriting Simulation -->
+<div class="bg-surface-container-low rounded-2xl p-4 mb-6 border border-outline-variant/30 flex flex-col gap-2.5">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/20 text-label-sm font-label-sm font-bold text-on-surface-variant">
+<span>진정성 브랜드 레터</span>
+<span class="text-tertiary font-bold">Brand Persona</span>
+</div>
+<div class="p-3 bg-surface-container-lowest rounded-xl italic text-body-sm font-body-sm text-on-surface-variant border-l-2 border-tertiary">
+                “새벽 첫 햇살을 보며 반죽을 빚는 그 시간, 우리 가족에게 먹이고 싶은 단 하나의 빵을 만듭니다.”
+              </div>
+</div>
+<!-- Features Checklist -->
+<ul class="space-y-2.5 text-body-sm font-body-sm text-on-surface mb-6">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-base shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<span>1:1 심층 질문지를 통한 핵심 철학과 제작 스토리 발굴</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-base shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<span>타깃 고객의 언어로 재해석한 공감형 브랜드 문안</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-base shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<span>네이버/포털 검색에 유리한 자연스러운 SEO 키워드 배합</span>
+</li>
+</ul>
+</div>
+<a class="inline-flex items-center justify-center gap-1.5 w-full py-3 rounded-2xl bg-surface-container text-on-surface text-label-lg font-label-lg hover:bg-tertiary-fixed hover:text-tertiary transition-colors" href="#contact">
+<span>브랜드 글쓰기 문의</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 5. Interactive FAQ Section (자주 묻는 질문) -->
+<section class="py-16 md:py-24 bg-surface-container-low/60 border-y border-outline-variant/20" id="faq">
+<div class="max-w-4xl mx-auto px-6 md:px-12">
+<div class="text-center mb-12">
+<div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm mb-3 font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+<span>FAQ</span>
+</div>
+<h2 class="text-headline-xl font-headline-xl text-on-surface tracking-tight mb-3">
+            자주 묻는 질문
+          </h2>
+<p class="text-body-md font-body-md text-on-surface-variant">
+            소상공인 대표님들께서 가장 많이 궁금해하셨던 점들을 솔직하게 답변해 드립니다.
+          </p>
+</div>
+<div class="space-y-4" id="faq-accordion">
+<!-- Accordion Item 1 -->
+<div class="bg-surface-container-lowest rounded-2xl craft-border overflow-hidden custom-shadow-soft">
+<button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors focus:outline-none" type="button">
+<span class="flex items-center gap-3">
+<span class="text-primary font-bold">Q1.</span>
+<span>사진과 글도 함께 맡길 수 있나요?</span>
+</span>
+<span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200" data-icon="expand_more">expand_more</span>
+</button>
+<div class="faq-content px-6 pb-6 pt-0 text-body-md font-body-md text-on-surface-variant leading-relaxed hidden">
+              네, 물론입니다! 모아워크는 상세페이지 기획, 제품 사진 촬영, 브랜드 소개글 작성을 <strong>원스톱으로 함께 제공</strong>하여 시각적 톤앤매너와 문장의 결이 어긋나지 않도록 높은 일관성과 완성도로 진행합니다. 각각 외주를 줄 때 발생하는 번거로움과 비용 낭비를 줄이실 수 있습니다.
+            </div>
+</div>
+<!-- Accordion Item 2 -->
+<div class="bg-surface-container-lowest rounded-2xl craft-border overflow-hidden custom-shadow-soft">
+<button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors focus:outline-none" type="button">
+<span class="flex items-center gap-3">
+<span class="text-primary font-bold">Q2.</span>
+<span>제작 비용과 작업 기간은 어떻게 되나요?</span>
+</span>
+<span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200" data-icon="expand_more">expand_more</span>
+</button>
+<div class="faq-content px-6 pb-6 pt-0 text-body-md font-body-md text-on-surface-variant leading-relaxed hidden">
+              제품의 품목 수, 기존 보유 자료(스마트폰 사진, 메모 등)의 활용 가능 여부에 따라 꼭 필요한 항목만 선별해 투명한 맞춤 견적을 산출해 드립니다. 불필요한 고가 패키지는 절대 강요하지 않으며, 평균 작업 기간은 기획 확정 후 <strong>영업일 기준 7~10일</strong> 가량 소요됩니다.
+            </div>
+</div>
+<!-- Accordion Item 3 -->
+<div class="bg-surface-container-lowest rounded-2xl craft-border overflow-hidden custom-shadow-soft">
+<button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors focus:outline-none" type="button">
+<span class="flex items-center gap-3">
+<span class="text-primary font-bold">Q3.</span>
+<span>온라인 판매가 처음이라 무엇부터 준비해야 할지 막막해요.</span>
+</span>
+<span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200" data-icon="expand_more">expand_more</span>
+</button>
+<div class="faq-content px-6 pb-6 pt-0 text-body-md font-body-md text-on-surface-variant leading-relaxed hidden">
+              전혀 걱정하지 마세요. 하단의 <strong>'상담 전 준비 가이드 4가지'</strong>만 가볍게 확인해 주시면 됩니다. 완벽하게 정리된 기획서가 없어도, 1:1 무료 사전 진단을 통해 대표님의 소중한 제품 특징과 강점을 모아워크가 함께 찾아드리고 구조화해 드립니다.
+            </div>
+</div>
+<!-- Accordion Item 4 -->
+<div class="bg-surface-container-lowest rounded-2xl craft-border overflow-hidden custom-shadow-soft">
+<button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors focus:outline-none" type="button">
+<span class="flex items-center gap-3">
+<span class="text-primary font-bold">Q4.</span>
+<span>수정 작업은 몇 회까지 가능한가요?</span>
+</span>
+<span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200" data-icon="expand_more">expand_more</span>
+</button>
+<div class="faq-content px-6 pb-6 pt-0 text-body-md font-body-md text-on-surface-variant leading-relaxed hidden">
+              초안 전달 후 텍스트 및 레이아웃 디테일 피드백에 대해 <strong>기본 2회 무료 수정</strong>이 포함되어 있습니다. 또한 소통의 오류를 사전에 차단하기 위해 기획 단계에서 충분히 방향성을 합의하고 작업을 시작하므로 만족도가 매우 높습니다.
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Consultation & Preparation Guide (Contact Section) -->
+<section class="py-16 md:py-24 max-w-7xl mx-auto px-6 md:px-12" id="contact">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+<!-- Left Column (상담 전 준비 가이드) -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm w-fit font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="tips_and_updates">tips_and_updates</span>
+<span>PREPARATION GUIDE</span>
+</div>
+<h2 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">
+            상담 전 준비해 주시면<br/>좋은 4가지
+          </h2>
+<div class="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/30 text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+<span class="text-primary font-bold">💡 따뜻한 안내:</span> 완벽하지 않아도 괜찮습니다. 손글씨 메모나 핸드폰으로 찍어두신 사진 한 장만 있어도 상담을 진행하기에 충분합니다.
+          </div>
+<!-- 4 Numbered Badges -->
+<div class="space-y-4 pt-2">
+<div class="flex items-start gap-4 p-4 rounded-2xl bg-surface-container-lowest craft-border shadow-xs">
+<span class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-title-md text-title-md shrink-0">
+                01
+              </span>
+<div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">소개할 제품</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">제품명 및 대표님이 가장 자랑하고 싶으신 핵심 특징 1~2가지</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-2xl bg-surface-container-lowest craft-border shadow-xs">
+<span class="w-8 h-8 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-title-md text-title-md shrink-0">
+                02
+              </span>
+<div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">주요 고객</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">우리 제품을 주로 찾는 분들의 연령대, 성별, 구매 상황</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-2xl bg-surface-container-lowest craft-border shadow-xs">
+<span class="w-8 h-8 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center font-title-md text-title-md shrink-0">
+                03
+              </span>
+<div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">현재 가진 자료</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">기존 스마트폰으로 찍어둔 현장 사진, 상품 메모, 패키지 사진 등</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-2xl bg-surface-container-lowest craft-border shadow-xs">
+<span class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-title-md text-title-md shrink-0">
+                04
+              </span>
+<div>
+<h3 class="text-title-md font-title-md text-on-surface font-bold">필요한 제작 항목</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">상세페이지 단독 / 제품 사진 촬영 포함 / 브랜드 소개글 등</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (1:1 무료 사전 진단 & 상담 문의 폼) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-3xl craft-border p-8 md:p-10 custom-shadow-soft">
+<div class="mb-6">
+<h3 class="text-headline-md font-headline-md text-on-surface tracking-tight mb-2">
+              1:1 무료 사전 진단 &amp; 상담 문의
+            </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              작성해 주신 내용을 바탕으로 대표가 기존 자료를 직접 검토한 후 알맞은 방안을 준비해 연락드립니다.
+            </p>
+</div>
+<form class="space-y-5" id="consult-form">
+<!-- 대표자명 / 브랜드명 -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5 font-bold" for="brand-name">
+                대표자명 / 브랜드명 <span class="text-primary">*</span>
+</label>
+<input class="w-full px-4 py-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 text-on-surface placeholder:text-on-surface-variant/50 focus:bg-surface-container-lowest focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all outline-none" id="brand-name" placeholder="예: 김민수 (달빛발효공방)" required="" type="text"/>
+</div>
+<!-- 연락처 & 이메일 Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5 font-bold" for="contact-phone">
+                  연락처 <span class="text-primary">*</span>
+</label>
+<input class="w-full px-4 py-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 text-on-surface placeholder:text-on-surface-variant/50 focus:bg-surface-container-lowest focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all outline-none" id="contact-phone" placeholder="010-1234-5678" required="" type="tel"/>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5 font-bold" for="contact-email">
+                  이메일 (선택)
+                </label>
+<input class="w-full px-4 py-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 text-on-surface placeholder:text-on-surface-variant/50 focus:bg-surface-container-lowest focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all outline-none" id="contact-email" placeholder="maker@brand.com" type="email"/>
+</div>
+</div>
+<!-- 희망 서비스 선택 (다중 체크칩) -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-2 font-bold">
+                희망 서비스 선택 (중복 선택 가능)
+              </label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+<label class="flex items-center gap-2 p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary-container cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 rounded text-primary-container focus:ring-primary-container border-outline-variant" name="services" type="checkbox" value="상세페이지"/>
+<span class="text-label-sm font-label-sm text-on-surface">상세페이지</span>
+</label>
+<label class="flex items-center gap-2 p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary-container cursor-pointer transition-colors">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-primary-container border-outline-variant" name="services" type="checkbox" value="제품촬영"/>
+<span class="text-label-sm font-label-sm text-on-surface">제품 촬영</span>
+</label>
+<label class="flex items-center gap-2 p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary-container cursor-pointer transition-colors">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-primary-container border-outline-variant" name="services" type="checkbox" value="소개글"/>
+<span class="text-label-sm font-label-sm text-on-surface">브랜드 소개글</span>
+</label>
+<label class="flex items-center gap-2 p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary-container cursor-pointer transition-colors">
+<input class="w-4 h-4 rounded text-primary-container focus:ring-primary-container border-outline-variant" name="services" type="checkbox" value="종합원스톱"/>
+<span class="text-label-sm font-label-sm text-on-surface">종합 원스톱</span>
+</label>
+</div>
+</div>
+<!-- 제품 소개 및 문의 내용 -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5 font-bold" for="inquiry-message">
+                제품 소개 및 문의 내용 (자유롭게 편히 적어주세요)
+              </label>
+<textarea class="w-full px-4 py-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 text-on-surface placeholder:text-on-surface-variant/50 focus:bg-surface-container-lowest focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all outline-none resize-none" id="inquiry-message" placeholder="예: '직접 담근 된장과 장아찌를 스마트스토어에서 판매하고 싶은데, 기존 사진으로 충분할지 아니면 새로 촬영해야 할지 진단받고 싶습니다.'" rows="4"></textarea>
+</div>
+<!-- 24시간 내 대표 연락 안내 문구 -->
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-primary font-medium">
+<span class="material-symbols-outlined text-base" data-icon="schedule">schedule</span>
+<span>상담 신청서 접수 확인 후 24시간 내 대표가 직접 친절하게 연락드립니다.</span>
+</div>
+<!-- Submit Button -->
+<button class="w-full py-4 rounded-full bg-primary-container text-surface-container-lowest font-headline-sm text-headline-sm custom-shadow-warm hover:opacity-95 active:scale-98 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed" id="submit-btn" type="submit">
+<span id="submit-btn-text">무료 상담 신청서 접수하기</span>
+<span id="submit-btn-icon" class="text-lg leading-none">🚀</span>
+</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- 7. Footer (Shared Component JSON Execution) -->
+<footer class="w-full py-16 px-6 md:px-12 max-w-7xl mx-auto flex flex-col gap-10 bg-surface-container-low border-t border-outline-variant/20 rounded-t-xl">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-outline-variant/20">
+<div class="flex flex-col gap-3">
+<a aria-label="MOAWORK Studio" class="inline-block" href="#">
+<img alt="MOAWORK Studio Logo" class="h-10 w-auto object-contain" src="logo.svg"/>
+</a>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-lg leading-relaxed">
+          소상공인과 독립 메이커의 진심 어린 제품이 온 세상에 다정하게 닿을 수 있도록, 손수 정성을 다해 만듭니다.
+        </p>
+</div>
+<!-- Links adhering to JSON and studio navigation -->
+<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#services">Detail Page</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#services">Photography</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#services">Copywriting</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#faq">Privacy Policy</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#faq">Terms of Service</a>
+<a class="text-label-md font-label-md text-primary font-bold hover:underline transition-colors flex items-center gap-1" href="admin.html">
+<span>📊 관리자 대시보드</span>
+</a>
+<a class="text-label-md font-label-md text-on-surface font-semibold hover:text-primary transition-colors flex items-center gap-1" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+<span>Instagram</span>
+<span class="material-symbols-outlined text-xs" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- Business Metadata & Copyright -->
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+<span>상호: 모아워크 스튜디오</span>
+<span class="hidden sm:inline">|</span>
+<span>대표: 크리에이티브 디렉터</span>
+<span class="hidden sm:inline">|</span>
+<span>이메일: hello@moawork.kr</span>
+<span class="hidden sm:inline">|</span>
+<span>인스타그램: @moawork_studio</span>
+</div>
+<div>
+        © 2024 MOAWORK Studio. Crafted with heart for independent makers. All rights reserved.
+      </div>
+</div>
+</footer>
+<!-- Micro-interactions Script -->
+<script>
+    // FAQ Accordion interaction
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('[data-icon="expand_more"]');
+        const isOpen = !content.classList.contains('hidden');
+
+        // Close all other accordions for neatness
+        document.querySelectorAll('.faq-content').forEach(item => {
+          item.classList.add('hidden');
+        });
+        document.querySelectorAll('.faq-toggle [data-icon="expand_more"]').forEach(i => {
+          i.style.transform = 'rotate(0deg)';
+        });
+
+        // Toggle current
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+
+    // Open first FAQ by default
+    const firstToggle = document.querySelector('.faq-toggle');
+    if (firstToggle) {
+      firstToggle.click();
+    }
+  </script>
+  <script src="script.js"></script>
+</body></html>

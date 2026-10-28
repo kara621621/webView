@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>모아워크 상담 관리자 대시보드 (MOAWORK Admin)</title>
+  
+  <!-- 구글 웹 폰트 & 프리텐다드 & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 450, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    :root {
+      --primary: #ae3115;
+      --primary-hover: #8f260f;
+      --primary-light: #ffdad2;
+      --accent: #fda632;
+      --bg: #FAF8F5;
+      --surface: #ffffff;
+      --surface-border: #ede7df;
+      --text-main: #111c2d;
+      --text-muted: #59413c;
+      --text-subtle: #8d716a;
+      --success: #006c50;
+      --success-bg: #e6f6f1;
+      --radius: 16px;
+      --shadow-sm: 0 4px 16px rgba(43, 38, 35, 0.05);
+      --shadow-md: 0 12px 32px rgba(43, 38, 35, 0.08);
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard", "Manrope", -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
+    }
+
+    /* ----------------------------------------------------
+       헤더 영역
+       ---------------------------------------------------- */
+    .admin-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--surface-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo-mark {
+      width: 42px;
+      height: 42px;
+      background-color: var(--primary);
+      color: #fff;
+      font-family: "EB Garamond", serif;
+      font-size: 24px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+    }
+
+    .brand-title {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      background: #e6f6f1;
+      color: var(--success);
+      padding: 3px 9px;
+      border-radius: 9999px;
+      margin-left: 8px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* ----------------------------------------------------
+       공통 버튼 스타일
+       ---------------------------------------------------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-outline {
+      background-color: var(--surface);
+      border-color: var(--surface-border);
+      color: var(--text-main);
+    }
+    .btn-outline:hover {
+      background-color: #f7f3ef;
+      border-color: var(--accent);
+      color: var(--primary);
+    }
+
+    .btn-home {
+      background-color: #f3efe9;
+      color: var(--text-muted);
+    }
+    .btn-home:hover {
+      background-color: #e8e2d8;
+      color: var(--text-main);
+    }
+
+    .btn-icon {
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+
+    /* ----------------------------------------------------
+       메인 컨테이너
+       ---------------------------------------------------- */
+    .admin-container {
+      max-width: 1280px;
+      margin: 28px auto 0;
+      padding: 0 24px;
+    }
+
+    /* 통계 요약 카드 그리드 */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      padding: 22px 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .stat-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .stat-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-subtle);
+      font-weight: 600;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-main);
+      font-family: "Manrope", sans-serif;
+    }
+
+    /* 컨트롤 바 (검색 및 카운트) */
+    .control-bar {
+      background: var(--surface);
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .search-wrap {
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      border: 1px solid var(--surface-border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      flex: 1;
+      max-width: 420px;
+    }
+
+    .search-input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 14px;
+      width: 100%;
+      color: var(--text-main);
+      margin-left: 8px;
+    }
+
+    .control-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* ----------------------------------------------------
+       상담 내역 테이블
+       ---------------------------------------------------- */
+    .table-container {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+    }
+
+    .inquiry-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .inquiry-table th {
+      background: #faf8f5;
+      padding: 16px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-subtle);
+      border-bottom: 1px solid var(--surface-border);
+      white-space: nowrap;
+    }
+
+    .inquiry-table td {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--surface-border);
+      font-size: 14px;
+      vertical-align: middle;
+    }
+
+    .inquiry-table tbody tr:hover {
+      background-color: #fdfbf8;
+    }
+
+    .user-name-tag {
+      font-weight: 700;
+      color: var(--text-main);
+      font-size: 15px;
+    }
+
+    .user-contact-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: "Manrope", sans-serif;
+      font-weight: 600;
+      color: var(--primary);
+      background: #fff4f1;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    .user-email-tag {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .service-chip {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      background: #fbf5f2;
+      color: var(--primary);
+      border: 1px solid var(--primary-light);
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-right: 4px;
+      margin-bottom: 2px;
+    }
+
+    .inquiry-message {
+      max-width: 420px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: var(--text-main);
+      line-height: 1.5;
+      font-size: 13px;
+    }
+
+    .date-tag {
+      font-size: 13px;
+      color: var(--text-subtle);
+      font-family: "Manrope", sans-serif;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* 빈 데이터 상태 안내 */
+    .empty-state {
+      padding: 80px 20px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    /* 로딩 스피너 애니메이션 */
+    .spin {
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    /* 반응형 모바일 뷰 */
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .control-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .search-wrap {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====================================================
+       헤더 (비밀번호 없이 즉시 접속)
+       ==================================================== -->
+  <header class="admin-header">
+    <div class="header-inner">
+      <div class="brand-wrap">
+        <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+          <img src="logo.svg" alt="MOAWORK Logo" style="height: 32px; width: auto; object-contain;" />
+        </a>
+        <div>
+          <h1 class="brand-title">상담 관리 센터 <span class="brand-badge">● 실시간 연동</span></h1>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-home">
+          <span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span>
+          <span>홈페이지 돌아가기</span>
+        </a>
+        <button class="btn btn-outline" id="refresh-btn">
+          <span class="material-symbols-outlined" id="refresh-icon" style="font-size: 18px;">refresh</span>
+          <span>실시간 새로고침</span>
+        </button>
+        <button class="btn btn-primary" id="download-csv-btn">
+          <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+          <span>엑셀(CSV) 저장</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================================================
+       메인 대시보드
+       ==================================================== -->
+  <main class="admin-container">
+
+    <!-- 통계 요약 카드 -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon" style="background: #ffdad2; color: #ae3115;">
+          <span class="material-symbols-outlined" style="font-size: 26px;">mark_email_unread</span>
+        </div>
+        <div class="stat-info">
+          <span class="stat-label">총 접수 문의</span>
+          <span class="stat-value" id="total-count">0</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background: #ffddba; color: #875200;">
+          <span class="material-symbols-outlined" style="font-size: 26px;">today</span>
+        </div>
+        <div class="stat-info">
+          <span class="stat-label">오늘 신규 접수</span>
+          <span class="stat-value" id="today-count">0</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background: #84f8cc; color: #006c50;">
+          <span class="material-symbols-outlined" style="font-size: 26px;">schedule</span>
+        </div>
+        <div class="stat-info">
+          <span class="stat-label">최근 접수 일시</span>
+          <span class="stat-value" id="latest-date" style="font-size: 16px; margin-top: 6px;">-</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 검색 및 필터 컨트롤 바 -->
+    <section class="control-bar">
+      <div class="search-wrap">
+        <span class="material-symbols-outlined" style="font-size: 20px; color: var(--text-subtle);">search</span>
+        <input 
+          type="text" 
+          id="search-input" 
+          class="search-input" 
+          placeholder="대표자명, 연락처, 희망서비스, 문의내용 실시간 검색..."
+        >
+      </div>
+      <div class="control-actions">
+        <span id="filtered-count" style="font-size: 14px; color: var(--text-muted); font-weight: 600;">조회 결과: 0건</span>
+      </div>
+    </section>
+
+    <!-- 상담 문의 목록 테이블 -->
+    <section class="table-container">
+      <table class="inquiry-table">
+        <thead>
+          <tr>
+            <th style="width: 150px;">접수 일시</th>
+            <th style="width: 170px;">대표자명 / 브랜드명</th>
+            <th style="width: 180px;">연락처</th>
+            <th style="width: 180px;">이메일</th>
+            <th style="width: 180px;">희망 서비스</th>
+            <th>문의 내용</th>
+            <th style="width: 80px; text-align: center;">복사</th>
+          </tr>
+        </thead>
+        <tbody id="inquiry-list">
+          <tr>
+            <td colspan="7" class="empty-state">
+              <div class="empty-icon spin">⏳</div>
+              <p>구글 스프레드시트에서 실시간 상담 데이터를 불러오는 중입니다...</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <script>
+    /**
+     * ==========================================================================
+     * 모아워크 상담 관리자 대시보드 로직
+     * ==========================================================================
+     */
+
+    // 1. 구글 스프레드시트 배포 Web App URL
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzJtqypi1gII308jGHm9060etdwHcp8X8F83LBxIbBuJwuNwGIadYe9NhZaNgtlIcOY7g/exec';
+
+    // 전역 상태 변수
+    let inquiryData = [];
+
+    // DOM 요소
+    const refreshBtn = document.getElementById('refresh-btn');
+    const refreshIcon = document.getElementById('refresh-icon');
+    const downloadCsvBtn = document.getElementById('download-csv-btn');
+    const searchInput = document.getElementById('search-input');
+
+    const totalCountEl = document.getElementById('total-count');
+    const todayCountEl = document.getElementById('today-count');
+    const latestDateEl = document.getElementById('latest-date');
+    const filteredCountEl = document.getElementById('filtered-count');
+    const inquiryListEl = document.getElementById('inquiry-list');
+
+    // 날짜 포맷팅 유틸
+    function formatDateDisplay(raw) {
+      if (!raw) return '-';
+      try {
+        const d = new Date(raw);
+        if (!isNaN(d.getTime())) {
+          const y = d.getFullYear();
+          const m = String(d.getMonth() + 1).padStart(2, '0');
+          const day = String(d.getDate()).padStart(2, '0');
+          const h = String(d.getHours()).padStart(2, '0');
+          const min = String(d.getMinutes()).padStart(2, '0');
+          return `${y}-${m}-${day} ${h}:${min}`;
+        }
+      } catch (e) {}
+      return String(raw).slice(0, 19);
+    }
+
+    /**
+     * 구글 스프레드시트 데이터 불러오기 (fetch + JSONP 듀얼 지원으로 100% 로드)
+     */
+    async function fetchInquiries() {
+      refreshIcon.classList.add('spin');
+      refreshBtn.disabled = true;
+
+      // 1단계: fetch API 시도
+      try {
+        const response = await fetch(GOOGLE_SCRIPT_URL);
+        const result = await response.json();
+        if (result && result.result === 'success') {
+          inquiryData = result.data || [];
+          updateDashboard(inquiryData);
+          refreshIcon.classList.remove('spin');
+          refreshBtn.disabled = false;
+          return;
+        }
+      } catch (err) {
+        console.warn('fetch 방식 로드 대기 중, JSONP 방식으로 즉시 연결합니다:', err);
+      }
+
+      // 2단계: JSONP 스크립트 태그 방식으로 로드 (로컬 브라우저 보안 제약 원천 해결)
+      loadJsonp();
+    }
+
+    function loadJsonp() {
+      const old = document.getElementById('jsonp-loader');
+      if (old) old.remove();
+
+      const script = document.createElement('script');
+      script.id = 'jsonp-loader';
+      script.src = `${GOOGLE_SCRIPT_URL}?callback=handleAdminDataCallback&_=${Date.now()}`;
+      
+      script.onerror = function() {
+        refreshIcon.classList.remove('spin');
+        refreshBtn.disabled = false;
+        showEmptyState('구글 시트 데이터를 불러오지 못했습니다. [새로고침]을 다시 눌러주세요.');
+      };
+
+      document.body.appendChild(script);
+    }
+
+    // JSONP 응답 수신 콜백
+    window.handleAdminDataCallback = function(result) {
+      refreshIcon.classList.remove('spin');
+      refreshBtn.disabled = false;
+
+      if (result && result.result === 'success') {
+        inquiryData = result.data || [];
+        updateDashboard(inquiryData);
+      } else {
+        showEmptyState('데이터를 읽어올 수 없습니다.');
+      }
+    };
+
+    // 화면 갱신
+    function updateDashboard(list) {
+      // 1. 통계 갱신
+      totalCountEl.textContent = list.length;
+
+      const now = new Date();
+      const currentYear = now.getFullYear();
+      const currentMonth = now.getMonth();
+      const currentDate = now.getDate();
+
+      const todayCount = list.filter(item => {
+        if (!item.timestamp) return false;
+        const d = new Date(item.timestamp);
+        return !isNaN(d.getTime()) && 
+               d.getFullYear() === currentYear && 
+               d.getMonth() === currentMonth && 
+               d.getDate() === currentDate;
+      }).length;
+      todayCountEl.textContent = todayCount;
+
+      if (list.length > 0) {
+        latestDateEl.textContent = formatDateDisplay(list[0].timestamp);
+      } else {
+        latestDateEl.textContent = '-';
+      }
+
+      renderTable(list);
+    }
+
+    // 테이블 렌더링
+    function renderTable(list) {
+      filteredCountEl.textContent = `조회 결과: ${list.length}건`;
+
+      if (list.length === 0) {
+        showEmptyState('접수된 상담 문의가 없습니다.');
+        return;
+      }
+
+      inquiryListEl.innerHTML = list.map((item, index) => {
+        const servicesChips = item.services ? item.services.split(',').map(s => {
+          return `<span class="service-chip">${escapeHtml(s.trim())}</span>`;
+        }).join('') : '<span style="color: #999; font-size: 12px;">선택 없음</span>';
+
+        return `
+          <tr>
+            <td><span class="date-tag">${formatDateDisplay(item.timestamp)}</span></td>
+            <td><span class="user-name-tag">${escapeHtml(item.brandName || '')}</span></td>
+            <td>
+              <span class="user-contact-tag">
+                <span class="material-symbols-outlined" style="font-size: 14px;">call</span>
+                ${escapeHtml(item.contactPhone || '')}
+              </span>
+            </td>
+            <td>
+              <span class="user-email-tag" style="display: inline-flex; align-items: center; gap: 4px;">
+                <span class="material-symbols-outlined" style="font-size: 14px; color: var(--text-subtle);">mail</span>
+                ${escapeHtml(item.contactEmail || '-')}
+              </span>
+            </td>
+            <td>${servicesChips}</td>
+            <td><div class="inquiry-message">${escapeHtml(item.inquiryMessage || '')}</div></td>
+            <td style="text-align: center;">
+              <button 
+                class="btn btn-outline btn-icon" 
+                title="연락처 및 상담 내용 복사"
+                onclick="copyToClipboard('${escapeAttr(item.brandName)}', '${escapeAttr(item.contactPhone)}', '${escapeAttr(item.services)}', '${escapeAttr(item.inquiryMessage)}')"
+                style="padding: 6px 10px; border-radius: 8px;"
+              >
+                <span class="material-symbols-outlined" style="font-size: 16px;">content_copy</span>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // 안내 메시지 표시
+    function showEmptyState(msg) {
+      inquiryListEl.innerHTML = `
+        <tr>
+          <td colspan="7" class="empty-state">
+            <div class="empty-icon">
+              <span class="material-symbols-outlined" style="font-size: 48px; color: #cbd5e1;">inventory_2</span>
+            </div>
+            <p>${msg}</p>
+          </td>
+        </tr>
+      `;
+    }
+
+    // 실시간 검색
+    searchInput.addEventListener('input', (e) => {
+      const keyword = e.target.value.toLowerCase().trim();
+      if (!keyword) {
+        renderTable(inquiryData);
+        return;
+      }
+
+      const filtered = inquiryData.filter(item => {
+        return (item.brandName || '').toLowerCase().includes(keyword) ||
+               (item.contactPhone || '').toLowerCase().includes(keyword) ||
+               (item.contactEmail || '').toLowerCase().includes(keyword) ||
+               (item.services || '').toLowerCase().includes(keyword) ||
+               (item.inquiryMessage || '').toLowerCase().includes(keyword) ||
+               (item.timestamp || '').toLowerCase().includes(keyword);
+      });
+
+      renderTable(filtered);
+    });
+
+    // 새로고침 버튼
+    refreshBtn.addEventListener('click', fetchInquiries);
+
+    // CSV 다운로드 (엑셀 호환)
+    downloadCsvBtn.addEventListener('click', () => {
+      if (inquiryData.length === 0) {
+        alert('다운로드할 데이터가 없습니다.');
+        return;
+      }
+
+      let csvContent = '\uFEFF'; // 한글 엑셀 깨짐 방지용 BOM
+      csvContent += '접수일시,대표자명/브랜드명,연락처,이메일,희망서비스,문의내용\n';
+
+      inquiryData.forEach(row => {
+        const date = `"${(row.timestamp || '').replace(/"/g, '""')}"`;
+        const name = `"${(row.brandName || '').replace(/"/g, '""')}"`;
+        const phone = `"${(row.contactPhone || '').replace(/"/g, '""')}"`;
+        const email = `"${(row.contactEmail || '').replace(/"/g, '""')}"`;
+        const services = `"${(row.services || '').replace(/"/g, '""')}"`;
+        const message = `"${(row.inquiryMessage || '').replace(/"/g, '""')}"`;
+        csvContent += `${date},${name},${phone},${email},${services},${message}\n`;
+      });
+
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', `모아워크_상담신청서_접수내역_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+
+    // 클립보드 복사 함수
+    window.copyToClipboard = function(name, phone, services, message) {
+      const text = `[모아워크 상담 신청]\n• 신청자: ${name}\n• 연락처: ${phone}\n• 희망서비스: ${services}\n• 문의내용:\n${message}`;
+      navigator.clipboard.writeText(text).then(() => {
+        alert(`"${name}" 님의 상담 내용이 클립보드에 복사되었습니다!`);
+      }).catch(err => {
+        console.error('복사 실패:', err);
+      });
+    };
+
+    // XSS 방지 유틸
+    function escapeHtml(text) {
+      const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      };
+      return String(text).replace(/[&<>"']/g, m => map[m]);
+    }
+
+    function escapeAttr(text) {
+      return String(text || '').replace(/'/g, "\\'").replace(/\n/g, " ");
+    }
+
+    // 접속하자마자 즉시 구글 시트 데이터 로드 (비밀번호 없음!)
+    fetchInquiries();
+  </script>
+</body>
+</html>

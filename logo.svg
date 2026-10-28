@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <rect width="48" height="48" x="6" y="6" rx="14" fill="#FF6B4A" />
+  <path d="M18 24C18 20.6863 20.6863 18 24 18C27.3137 18 30 20.6863 30 24" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M30 24C30 20.6863 32.6863 18 36 18C39.3137 18 42 20.6863 42 24" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M20 32C24 38 36 38 40 32" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="16" cy="33" r="2.5" fill="#FFE27A"/>
+  <circle cx="44" cy="33" r="2.5" fill="#FFE27A"/>
+  <text x="66" y="38" font-family="'Plus Jakarta Sans', Pretendard, sans-serif" font-weight="900" font-size="26" fill="#1E293B" letter-spacing="-0.5">MOA<tspan fill="#FF6B4A">WORK</tspan></text>
+  <text x="67" y="49" font-family="Pretendard, sans-serif" font-weight="700" font-size="10" fill="#64748B" letter-spacing="1.2">모아워크 스튜디오</text>
+</svg>
